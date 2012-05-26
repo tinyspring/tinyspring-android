@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:p="http://www.springframework.org/schema/p"
+      xmlns:util="http://www.springframework.org/schema/util"
+      xsi:schemaLocation="
+           http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/util
+           http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<util:list id="defaultPlugins" value-type="">
+		<value>
+			<bean class="com.h2.tinyspring.android.plugin.InjectLayoutPlugin" />
+		</value>
+		<value>
+			<bean class="com.h2.tinyspring.android.plugin.InjectViewsPlugin" />
+		</value>
+		<value>
+			<bean class="com.h2.tinyspring.android.plugin.InjectFieldsPlugin" />
+		</value>
+	</util:list>
+
+</beans>
