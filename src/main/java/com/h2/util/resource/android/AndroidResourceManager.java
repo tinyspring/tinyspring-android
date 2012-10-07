@@ -41,7 +41,7 @@ public class AndroidResourceManager implements IResourceManager {
       if (is == null) {
     	// try to find the resource in the apk
     	try {
-    		is = (InputStream)getClass().getClassLoader().getResource("tinyspring-android.xml").getContent();
+    		is = (InputStream)getClass().getClassLoader().getResource(file).getContent();
     	} catch (Exception e) {
       	  log.debug("Couldn't open the resource '" + file + "' through dalvik class loader");
     	}

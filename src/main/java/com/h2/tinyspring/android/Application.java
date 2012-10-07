@@ -46,8 +46,8 @@ public class Application extends android.app.Application {
 		final AndroidResourceManager resManager = new AndroidResourceManager();
 		resManager.setAssetManager(getAssets());
 
-		log.debug("Initializing Spring application context from tiny-android.xml");
-		this.springContext = new ClassPathXmlApplicationContext("tinyspring-android.xml", "tiny-android.xml") {
+		log.debug("Initializing Spring application context from tinyspring-android.xml");
+		this.springContext = new ClassPathXmlApplicationContext("taac.xml", "tinyspring-android.xml") {
 			@Override
 			public IResourceManager getResorceManager() {
 				return resManager;
