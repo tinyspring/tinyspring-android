@@ -19,6 +19,9 @@
 		<value>
 			<bean class="com.h2.tinyspring.android.plugin.InjectFieldsPlugin" />
 		</value>
+        <value>
+			<bean class="com.h2.tinyspring.android.plugin.InjectOnClickEventsPlugin"/>
+		</value>
 	</util:list>
 
 </beans>
