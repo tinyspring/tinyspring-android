@@ -12,6 +12,6 @@ Main features list:
 - autowiring of android application layouts through @AndroidLayout annotations
 - autowiring of android UI elements (Views etc.) through @View annotations
 - autowiring of on-click events on defined UI elements through @OnClick annotations
-- framework supports custom extensions/plugins (check [Zubhium plugin](http://github.com/tinyspring/tinyspring-android-zubhium/wiki))
+- framework supports custom extensions/plugins (check [Zubhium plugin](http://github.com/tinyspring/tinyspring-android-plugin-zubhium/wiki))
 
 Check out the [Wiki](http://github.com/tinyspring/tinyspring-android/wiki) page for more info.
