@@ -1,8 +1,8 @@
-package com.h2.tinyspring.android.plugin;
+package com.tinyspring.android.plugin;
 
 import android.app.Activity;
 
-import com.h2.tinyspring.android.Application;
+import com.tinyspring.android.Application;
 
 /**
  * An empty implementation of the plugin interface so extending plugins can implement

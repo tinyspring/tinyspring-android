@@ -1,4 +1,4 @@
-package com.h2.tinyspring.android.plugin;
+package com.tinyspring.android.plugin;
 
 import java.lang.reflect.Field;
 
@@ -12,7 +12,7 @@ import org.springframework.util.ReflectionUtils.FieldFilter;
 
 import android.app.Activity;
 
-import com.h2.tinyspring.android.annotation.Inject;
+import com.tinyspring.android.annotation.Inject;
 
 /**
  * This plugin is responsible for injecting all instantiated beans into

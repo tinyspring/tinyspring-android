@@ -11,16 +11,16 @@
 
 	<util:list id="defaultPlugins" value-type="">
 		<value>
-			<bean class="com.h2.tinyspring.android.plugin.InjectLayoutPlugin" />
+			<bean class="com.tinyspring.android.plugin.InjectLayoutPlugin" />
 		</value>
 		<value>
-			<bean class="com.h2.tinyspring.android.plugin.InjectViewsPlugin" />
+			<bean class="com.tinyspring.android.plugin.InjectViewsPlugin" />
 		</value>
 		<value>
-			<bean class="com.h2.tinyspring.android.plugin.InjectFieldsPlugin" />
+			<bean class="com.tinyspring.android.plugin.InjectFieldsPlugin" />
 		</value>
         <value>
-			<bean class="com.h2.tinyspring.android.plugin.InjectOnClickEventsPlugin"/>
+			<bean class="com.tinyspring.android.plugin.InjectOnClickEventsPlugin"/>
 		</value>
 	</util:list>
 

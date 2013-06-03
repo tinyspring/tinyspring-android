@@ -1,4 +1,4 @@
-package com.h2.tinyspring.android.plugin;
+package com.tinyspring.android.plugin;
 
 import java.lang.reflect.Method;
 
@@ -13,7 +13,7 @@ import org.springframework.util.ReflectionUtils.MethodFilter;
 import android.app.Activity;
 import android.view.View;
 
-import com.h2.tinyspring.android.annotation.OnClick;
+import com.tinyspring.android.annotation.OnClick;
 
 /**
  * This plugin is responsible for injecting click event declared in method with @OnClick

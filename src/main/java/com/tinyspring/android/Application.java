@@ -1,4 +1,4 @@
-package com.h2.tinyspring.android;
+package com.tinyspring.android;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,11 +12,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import android.app.Activity;
 import android.content.Context;
 
-import com.h2.org.springframework.beans.Bean;
-import com.h2.org.springframework.beans.factory.IResourceManager;
-import com.h2.org.springframework.beans.factory.SimpleBeanFactory;
-import com.h2.tinyspring.android.plugin.IPlugin;
-import com.h2.util.resource.android.AndroidResourceManager;
+import com.tinyspring.android.plugin.IPlugin;
+import com.tinyspring.android.util.AndroidResourceManager;
+import com.tinyspring.beans.Bean;
+import com.tinyspring.beans.factory.IResourceManager;
+import com.tinyspring.beans.factory.SimpleBeanFactory;
 
 public class Application extends android.app.Application {
 

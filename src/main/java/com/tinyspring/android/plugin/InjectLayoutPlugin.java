@@ -1,8 +1,8 @@
-package com.h2.tinyspring.android.plugin;
+package com.tinyspring.android.plugin;
 
 import android.app.Activity;
 
-import com.h2.tinyspring.android.annotation.AndroidLayout;
+import com.tinyspring.android.annotation.AndroidLayout;
 
 /**
  * This plugin is responsible for injecting android layout declared in

@@ -1,6 +1,6 @@
-package com.h2.tinyspring.android.plugin;
+package com.tinyspring.android.plugin;
 
-import com.h2.tinyspring.android.Application;
+import com.tinyspring.android.Application;
 
 import android.app.Activity;
 

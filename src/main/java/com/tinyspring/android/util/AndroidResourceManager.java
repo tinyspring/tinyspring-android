@@ -1,4 +1,4 @@
-package com.h2.util.resource.android;
+package com.tinyspring.android.util;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,10 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import android.content.res.AssetManager;
 
-import com.h2.org.springframework.beans.factory.IResourceManager;
-import com.h2.tinyspring.android.Application;
-
-import dalvik.system.DexClassLoader;
+import com.tinyspring.beans.factory.IResourceManager;
 
 public class AndroidResourceManager implements IResourceManager {
    

@@ -1,4 +1,4 @@
-package com.h2.util.resource.android;
+package com.tinyspring.android.util;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,7 +9,7 @@ import org.springframework.util.AntPathMatcher;
 
 import android.content.res.AssetManager;
 
-import com.h2.org.springframework.beans.factory.ResourceResolver;
+import com.tinyspring.beans.factory.ResourceResolver;
 
 public class AndroidResourceResolver extends ResourceResolver {
    

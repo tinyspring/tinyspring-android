@@ -1,8 +1,8 @@
-package com.h2.tinyspring.android;
+package com.tinyspring.android;
 
 import java.util.List;
 
-import com.h2.tinyspring.android.plugin.IPlugin;
+import com.tinyspring.android.plugin.IPlugin;
 
 public class ApplicationConfiguration {
 

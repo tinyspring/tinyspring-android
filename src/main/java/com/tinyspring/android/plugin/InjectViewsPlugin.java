@@ -1,4 +1,4 @@
-package com.h2.tinyspring.android.plugin;
+package com.tinyspring.android.plugin;
 
 import java.lang.reflect.Field;
 
@@ -10,7 +10,7 @@ import org.springframework.util.ReflectionUtils.FieldFilter;
 
 import android.app.Activity;
 
-import com.h2.tinyspring.android.annotation.AndroidView;
+import com.tinyspring.android.annotation.AndroidView;
 
 /**
  * This plugin is responsible for injecting all android views declared in

@@ -2,7 +2,7 @@ package org.springframework.context.support;
 
 import android.content.res.AssetManager;
 
-import com.h2.util.resource.android.AndroidResourceManager;
+import com.tinyspring.android.util.AndroidResourceManager;
 
 public class AndroidClassPathXmlApplicationContext extends ClassPathXmlApplicationContext {
 
