@@ -4,16 +4,17 @@ import java.lang.reflect.Method;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-import org.springframework.util.ReflectionUtils;
-import org.springframework.util.ReflectionUtils.MethodCallback;
-import org.springframework.util.ReflectionUtils.MethodFilter;
 
 import android.app.Activity;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.tinyspring.android.annotation.OnClick;
+import com.tinyspring.springframework.context.ApplicationContext;
+import com.tinyspring.springframework.context.ApplicationContextAware;
+import com.tinyspring.springframework.util.ReflectionUtils;
 
 /**
  * This plugin is responsible for injecting click event declared in method with @OnClick
@@ -22,54 +23,58 @@ import com.tinyspring.android.annotation.OnClick;
  * @author 35pr17
  * 
  */
-public class InjectOnClickEventsPlugin extends APlugin implements ApplicationContextAware {
+public class InjectOnClickEventsPlugin implements ApplicationContextAware, IActivityPlugin, IFragmentPlugin {
+	private ReflectionUtils.MethodFilter methodInjectFilter;
+	private static final Logger log = LoggerFactory.getLogger(InjectFieldsPlugin.class);
+	ApplicationContext applicationContext;
 
-	private MethodFilter methodInjectFilter = new MethodFilter() {
+	public InjectOnClickEventsPlugin() {
+		this.methodInjectFilter = new ReflectionUtils.MethodFilter() {
+			public boolean matches(Method method) {
+				return method.getAnnotation(OnClick.class) != null;
+			}
+		};
+	}
 
-		@Override
-		public boolean matches(Method method) {
-			return method.getAnnotation(OnClick.class) != null;
+	public void setApplicationContext(ApplicationContext applicationContext) {
+		this.applicationContext = applicationContext;
+	}
+
+	public void onActivityCreate(Activity activity) {
+		ReflectionUtils.doWithMethods(activity.getClass(), new MethodInjectProcessor(activity), this.methodInjectFilter);
+	}
+
+	public void onFragmentCreate(Fragment fragment, LayoutInflater inflater, ViewGroup container, Boolean create) {
+		ReflectionUtils.doWithMethods(fragment.getClass(), new MethodInjectProcessor(fragment), this.methodInjectFilter);
+	}
+
+	private class MethodInjectProcessor implements ReflectionUtils.MethodCallback {
+		Object object;
+
+		public MethodInjectProcessor(Object object) {
+			this.object = object;
 		}
-	};
 
-	private class MethodInjectProcessor implements MethodCallback {
-
-		Activity activity;
-
-		public MethodInjectProcessor(Activity activity) {
-			this.activity = activity;
-		}
-
-		@Override
 		public void doWith(final Method method) throws IllegalArgumentException, IllegalAccessException {
-			final String id = activity.getComponentName() + ":" + method.getName();
-			log.debug("Processing event injection for method '" + id + "' ");
-			View view = this.activity.findViewById(method.getAnnotation(OnClick.class).value());
+			View view = null;
+			if ((this.object instanceof Activity))
+				view = ((Activity) this.object).getWindow().getDecorView().getRootView();
+			else {
+				view = ((Fragment) this.object).getView();
+			}
+
+			view = view.findViewById(((OnClick) method.getAnnotation(OnClick.class)).value());
 
 			view.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
 					try {
 						ReflectionUtils.makeAccessible(method);
-						method.invoke(activity, v);
+						method.invoke(InjectOnClickEventsPlugin.MethodInjectProcessor.this.object, new Object[] { v });
 					} catch (Exception e) {
-						InjectOnClickEventsPlugin.log.error("Problem when invoking OnClick activity method {} with error {}", id, e.toString());
+						InjectOnClickEventsPlugin.log.error("Problem when invoking OnClick activity method {} with error {}", InjectOnClickEventsPlugin.MethodInjectProcessor.this.object, e.toString());
 					}
 				}
 			});
 		}
-	};
-
-	private static final Logger log = LoggerFactory.getLogger(InjectFieldsPlugin.class);
-
-	ApplicationContext applicationContext;
-
-	@Override
-	public void setApplicationContext(ApplicationContext applicationContext) {
-		this.applicationContext = applicationContext;
-	}
-
-	@Override
-	public void onActivityCreate(Activity activity) {
-		ReflectionUtils.doWithMethods(activity.getClass(), new MethodInjectProcessor(activity), methodInjectFilter);
 	}
 }

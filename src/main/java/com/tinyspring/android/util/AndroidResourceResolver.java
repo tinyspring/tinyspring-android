@@ -5,11 +5,11 @@ import java.io.IOException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.util.AntPathMatcher;
 
 import android.content.res.AssetManager;
 
 import com.tinyspring.beans.factory.ResourceResolver;
+import com.tinyspring.springframework.util.AntPathMatcher;
 
 public class AndroidResourceResolver extends ResourceResolver {
    

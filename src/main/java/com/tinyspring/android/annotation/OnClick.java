@@ -9,5 +9,5 @@ import java.lang.annotation.Target;
 @Retention(RUNTIME)
 @Target({ ElementType.METHOD })
 public @interface OnClick {
-        public int value() default -1;
+	public int value() default -1;
 }

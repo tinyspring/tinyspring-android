@@ -3,7 +3,7 @@
 
 	<groupId>com.tinyspring</groupId>
 	<artifactId>tinyspring-android</artifactId>
-	<version>0.1.0</version>
+	<version>0.2.0</version>
 	<packaging>jar</packaging>
 
 	<name>tinyspring-android</name>
@@ -78,6 +78,11 @@
 			<artifactId>android</artifactId>
 			<version>4.1.1.4</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>support-v4</artifactId>
+			<version>r7</version>
 		</dependency>
 
 	</dependencies>
